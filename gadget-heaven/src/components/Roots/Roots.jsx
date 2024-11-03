@@ -5,16 +5,18 @@ import Footer from '../Footer/Footer';
 
 const Roots = props => {
     return (
-        <div>
-            <div className='max-w-6xl mx-auto'><Navbar></Navbar></div>
-            <Outlet></Outlet>
-            <div className='max-w-6xl mx-auto'><Footer></Footer></div>
+        <div className='bg-gray-200'>
+            <div className='max-w-7xl mx-auto pt-5'><Navbar></Navbar></div>
+            <div className=' min-h-[calc(100vh-288px)]'>
+                <Outlet></Outlet>
+            </div>
+            <Footer></Footer>
         </div>
     );
 };
 
 Roots.propTypes = {
-    
+
 };
 
 export default Roots;
