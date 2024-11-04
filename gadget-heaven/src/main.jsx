@@ -9,15 +9,29 @@ import Roots from './components/Roots/Roots';
 import Home from './components/Home/Home';
 import Statistics from './components/Statistics/Statistics';
 import Dashboard from './components/Dashboard/Dashboard';
+import ProductsCard from './components/ProductsCard/ProductsCard';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Roots></Roots>,
-    children:[
+    children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('../categories.json'),
+        children: [
+          {
+            path: "/",
+            element: <ProductsCard></ProductsCard>,
+            loader: () => fetch('../products.json')
+          },
+          {
+            path: "/category/:category",
+            element: <ProductsCard></ProductsCard>,
+            loader: () => fetch('../products.json')
+          },
+        ]
       },
       {
         path: "/statistics",
@@ -34,6 +48,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
