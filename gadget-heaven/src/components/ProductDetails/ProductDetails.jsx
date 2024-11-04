@@ -2,11 +2,21 @@ import PropTypes from 'prop-types';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
+import { addCartToLocalStore, addHeartToLocalStore } from '../../Utility/productAddToLocal';
 
 const ProductDetails = props => {
     const { product_id } = useParams();
-    console.log(product_id);
     const data = useLoaderData();
+
+    // add to card handle
+    const addToCart = product_id => {
+        addCartToLocalStore(product_id);
+    }
+
+    // add to heart handle
+    const addToHeart = product_id => {
+        addHeartToLocalStore(product_id);
+    }
 
     const product = data.find(product => product.product_id === product_id);
     const { product_image, product_title, price, availability, description, specifications, rating } = product;
@@ -51,10 +61,14 @@ const ProductDetails = props => {
 
                         <div className='py-5 flex gap-2'>
                             <div>
-                                <button class="btn btn-active bg-[#9538E2] text-white rounded-full">Add To Card <FaShoppingCart></FaShoppingCart></button>
+                                <button 
+                                onClick={() => addToCart(product_id)}
+                                className="btn btn-active bg-[#9538E2] text-white rounded-full">Add To Cart <FaShoppingCart></FaShoppingCart></button>
                             </div>
                             <div>
-                                <button className='btn rounded-full text-xl'><CiHeart></CiHeart></button>
+                                <button 
+                                onClick={() => addToHeart(product_id)}
+                                className='btn rounded-full text-xl'><CiHeart></CiHeart></button>
                             </div>
                         </div>
                     </div>
