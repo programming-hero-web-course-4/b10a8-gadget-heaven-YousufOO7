@@ -7,10 +7,7 @@
         "phone_id": "1",
         "category": "Smartphone"
     },
-    {
-        "computer_id": 1,
-        "category": "Computer"
-    },
+    
     {
         "watch_id": "sw001",
         "category": "Smartwatch"
