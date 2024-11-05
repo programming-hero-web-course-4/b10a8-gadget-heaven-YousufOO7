@@ -12,6 +12,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import ProductsCard from './components/ProductsCard/ProductsCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import CartList from './components/CartList/CartList';
+import WishList from './components/WishList/WishList';
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
-        loader: () => fetch('/products.json')
+        loader: () => fetch('/products.json'),
       },
       {
         path: "/product/:product_id",

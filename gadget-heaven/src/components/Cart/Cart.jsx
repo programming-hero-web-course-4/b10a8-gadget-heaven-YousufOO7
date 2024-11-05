@@ -3,7 +3,6 @@ import './Cart.css';
 import { RxCrossCircled } from "react-icons/rx";
 
 const Cart = ({ cart }) => {
-    console.log(cart);
     const { product_image, product_title, price, availability, description, specifications, rating } = cart;
     return (
         <div className='my-5 max-w-6xl mx-auto'>
