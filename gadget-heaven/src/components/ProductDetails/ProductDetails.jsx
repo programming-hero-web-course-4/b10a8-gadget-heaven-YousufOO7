@@ -17,11 +17,7 @@ const ProductDetails = props => {
     }
 
     // add to heart handle
-    const heartCountEl = document.getElementById('heart-count');
-    let heartCount = 0;
     const addToHeart = product_id => {
-        heartCount += 1;
-        heartCountEl.innerText = heartCount; 
         addHeartToLocalStore(product_id);
     }
 
@@ -68,14 +64,14 @@ const ProductDetails = props => {
 
                         <div className='py-5 flex gap-2'>
                             <div>
-                                <button 
-                                onClick={() => addToCart(product_id)}
-                                className={`${isActiveCart? "disabled" : "btn btn-active bg-[#9538E2] text-white rounded-full"}`}>Add To Cart <FaShoppingCart></FaShoppingCart></button>
+                                <button
+                                    onClick={() => addToCart(product_id)}
+                                    className=" bg-[#9538E2] text-white rounded-full btn" disabled={isActiveCart}>Add To Cart <FaShoppingCart></FaShoppingCart></button>
                             </div>
                             <div>
-                                <button 
-                                onClick={() => addToHeart(product_id)}
-                                className='btn rounded-full text-xl'><CiHeart></CiHeart></button>
+                                <button
+                                    onClick={() => addToHeart(product_id)}
+                                    className="btn rounded-full text-xl"><CiHeart></CiHeart></button>
                             </div>
                         </div>
                     </div>

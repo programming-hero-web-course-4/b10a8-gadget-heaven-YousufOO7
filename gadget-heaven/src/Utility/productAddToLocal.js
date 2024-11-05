@@ -48,4 +48,6 @@ const addHeartToLocalStore = Product_id => {
     }
 }
 
+
+
 export {addCartToLocalStore, addHeartToLocalStore, getStoredToCartLocal, getStoredToHeartLocal}

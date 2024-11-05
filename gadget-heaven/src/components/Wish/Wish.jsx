@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
 import { RxCrossCircled } from "react-icons/rx";
+import { FaShoppingCart } from "react-icons/fa";
+import { addCartToLocalStore } from '../../Utility/productAddToLocal';
 const Wish = ({ wish, handleRemoveWishCart }) => {
+
+    const addToCart = product_id => {
+        addCartToLocalStore(product_id)
+    }
+
     const { product_image, product_title, description, price, product_id } = wish
     return (
         <div className='my-5 max-w-6xl mx-auto'>
@@ -11,7 +18,12 @@ const Wish = ({ wish, handleRemoveWishCart }) => {
                         <div className='space-y-1'>
                             <h3 className='font-semibold text-3xl'>{product_title}</h3>
                             <h3 className='text-gray-500 '>{description}</h3>
-                            <h3 className='font-bold'>Price: {price}$</h3>
+                            <h3 className='font-bold pb-3'>Price: {price}$</h3>
+                            <div>
+                                <button
+                                    onClick={() => addToCart(product_id)}
+                                    className="btn btn-active bg-[#9538E2] text-white rounded-full">Add To Cart <FaShoppingCart></FaShoppingCart></button>
+                            </div>
                         </div>
                     </div>
 
