@@ -3,18 +3,25 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { addCartToLocalStore, addHeartToLocalStore } from '../../Utility/productAddToLocal';
+import { useState } from 'react';
 
 const ProductDetails = props => {
     const { product_id } = useParams();
     const data = useLoaderData();
-
+    const [isActiveCart, setIsActiveCart] = useState(false);
     // add to card handle
-    const addToCart = product_id => {
+    const cartCountEl = document.getElementById('cart-count');
+    const addToCart = (product_id) => {
         addCartToLocalStore(product_id);
+        setIsActiveCart(true);
     }
 
     // add to heart handle
+    const heartCountEl = document.getElementById('heart-count');
+    let heartCount = 0;
     const addToHeart = product_id => {
+        heartCount += 1;
+        heartCountEl.innerText = heartCount; 
         addHeartToLocalStore(product_id);
     }
 
@@ -63,7 +70,7 @@ const ProductDetails = props => {
                             <div>
                                 <button 
                                 onClick={() => addToCart(product_id)}
-                                className="btn btn-active bg-[#9538E2] text-white rounded-full">Add To Cart <FaShoppingCart></FaShoppingCart></button>
+                                className={`${isActiveCart? "disabled" : "btn btn-active bg-[#9538E2] text-white rounded-full"}`}>Add To Cart <FaShoppingCart></FaShoppingCart></button>
                             </div>
                             <div>
                                 <button 

@@ -11,18 +11,19 @@ const getStoredToCartLocal = () => {
     }
 }
 
-
-const addCartToLocalStore = Product_id => {
-    const storedList = getStoredToCartLocal();
+const addCartToLocalStore = (Product_id) => {
+    let storedList = getStoredToCartLocal();
     if(storedList.includes(Product_id)){
         console.log(Product_id, "This item is already added");
     }
     else{
         storedList.push(Product_id);
-        const storedListStr = JSON.stringify(storedList);
-        localStorage.setItem('cart', storedListStr)
+        let storedListStr = JSON.stringify(storedList);
+        localStorage.setItem('cart', storedListStr);
+        
     }
 }
+
 
 const getStoredToHeartLocal = () => {
     const storedListStr = localStorage.getItem('heart');

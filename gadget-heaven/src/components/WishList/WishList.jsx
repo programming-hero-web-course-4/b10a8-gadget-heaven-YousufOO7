@@ -10,16 +10,24 @@ const WishList = props => {
 
     useEffect(() => {
         const storedWishList = getStoredToHeartLocal()
-        const wishList = allProduct.filter(product => storedWishList.includes(product.product_id));
+        const wishList = [...allProduct].filter(product => storedWishList.includes(product.product_id));
         setWishes(wishList);
-    },[])
+    },[allProduct])
+
+    // handle remove wish list
+    const handleRemoveWishCart = product_id => {
+        const removeWishCart = wishes.filter(wish => wish.product_id !== product_id);
+        setWishes(removeWishCart);
+    }
     return (
         <div className='my-5 max-w-6xl mx-auto'>
              <div className='flex justify-between items-center text-center mt-5'>
-                <h3 className="text-2xl font-bold">Cart</h3>
+                <h3 className="text-2xl font-bold">WishList</h3>
             </div>
             {
-                wishes.map((wish, idx) => <Wish key={idx} wish={wish}></Wish>)
+                wishes.map((wish, idx) => <Wish 
+                handleRemoveWishCart={handleRemoveWishCart}
+                key={idx} wish={wish}></Wish>)
             }
         </div>
     );

@@ -24,10 +24,10 @@ const Dashboard = props => {
                     <div className='space-x-5'>
                         <button
                             onClick={() => handleActive("Cart")}
-                            className={`${isActive.product ? 'btn btn-outline active' : 'btn btn-outline'} rounded-full text-white`}>Cart</button>
+                            className={`${isActive.product ? 'btn btn-outline activeCarts' : 'btn btn-outline'} rounded-full text-white`}>Cart</button>
                         <button
                             onClick={() => handleActive('wishList')}
-                            className={`${isActive.product ? 'btn btn-outline' : 'btn btn-outline active'} rounded-full text-white`}>WishList</button>
+                            className={`${isActive.product ? 'btn btn-outline' : 'btn btn-outline activeCarts'} rounded-full text-white`}>WishList</button>
                     </div>
                 </div>
             </div>

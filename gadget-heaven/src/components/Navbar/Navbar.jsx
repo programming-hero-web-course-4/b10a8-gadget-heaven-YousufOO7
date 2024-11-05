@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { FaShoppingCart } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
 
 const Navbar = props => {
 
@@ -46,44 +48,14 @@ const Navbar = props => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <div className='bg-white p-2 rounded-full'>
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                            </div>
-                            <span className="badge badge-sm indicator-item">0</span>
+                    <div className='space-x-2 items-center text-center flex'>
+                        <div className='flex'>
+                            <button className='btn btn-md btn-circle text-xl'><FaShoppingCart></FaShoppingCart></button>
+                            <span id='cart-count' className=" w-4 h-4 p-1 text-white font-normal text-sm rounded-full flex justify-center items-center">0</span>
                         </div>
-                    </div>
-
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <div className="rounded-full bg-white p-2">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="h-5 w-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                                    />
-                                </svg>
-                            </div>
-                            <span className="badge badge-sm indicator-item">0</span>
+                        <div className='flex'>
+                            <button className='btn btn-md btn-circle text-2xl'><CiHeart></CiHeart></button>
+                            <span id='heart-count' className=" w-4 h-4 p-1 text-white font-normal text-sm rounded-full flex justify-center items-center">0</span>
                         </div>
                     </div>
 
