@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 
 
 const getStoredToCartLocal = () => {
@@ -20,7 +21,7 @@ const addCartToLocalStore = (Product_id) => {
         storedList.push(Product_id);
         let storedListStr = JSON.stringify(storedList);
         localStorage.setItem('cart', storedListStr);
-        
+        toast.info('Add this cart to Cart List!!')
     }
 }
 
@@ -45,6 +46,7 @@ const addHeartToLocalStore = Product_id => {
         storedList.push(Product_id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('heart', storedListStr);
+        toast.info('Add this Heart to Wish List!!')
     }
 }
 

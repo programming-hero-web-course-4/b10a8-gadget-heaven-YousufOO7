@@ -11,5 +11,9 @@
     {
         "watch_id": "sw001",
         "category": "Smartwatch"
+    },
+    {
+        "Accessories": "2241",
+        "category" : "Accessories"
     }
 ]

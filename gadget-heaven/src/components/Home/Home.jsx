@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 
 const Home = props => {
     return (
-        <div>  
+        <div className='bg-gray-200'>  
             <BannerTitle></BannerTitle>
            <Banner></Banner>
            <Gadgets></Gadgets>

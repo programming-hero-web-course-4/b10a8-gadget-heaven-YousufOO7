@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { getStoredToHeartLocal } from '../../Utility/productAddToLocal';
 import Wish from '../Wish/Wish';
+import { toast } from 'react-toastify';
 
 const WishList = props => {
     const allProduct = useLoaderData();
@@ -18,6 +19,7 @@ const WishList = props => {
     const handleRemoveWishCart = product_id => {
         const removeWishCart = wishes.filter(wish => wish.product_id !== product_id);
         setWishes(removeWishCart);
+        toast.info('Remove this Wish to Wish List!!');
     }
     return (
         <div className='my-5 max-w-6xl mx-auto'>

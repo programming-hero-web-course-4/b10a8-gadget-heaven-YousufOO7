@@ -13,8 +13,8 @@ const Categories = ({ categories }) => {
     return (
         <div>
             <div className="card bg-base-100 shadow-xl">
-                <NavLink 
-                    to="/" 
+                <NavLink
+                    to="/"
                     className={`btn font-bold rounded-full my-2 w-[200px] mx-auto ${activeCategory === '' ? 'bg-active-color' : ''}`}
                     onClick={() => handleCategoryClick('')}
                 >
@@ -22,9 +22,9 @@ const Categories = ({ categories }) => {
                 </NavLink>
                 {
                     categories.map(category => (
-                        <NavLink 
-                            key={category.category} 
-                            to={`/category/${category.category}`} 
+                        <NavLink
+                            key={category.category}
+                            to={`/category/${category.category}`}
                             className={`btn font-bold rounded-full my-2 w-[200px] mx-auto ${activeCategory === category.category ? 'bg-active-color' : ''}`}
                             onClick={() => handleCategoryClick(category.category)}
                         >
@@ -32,6 +32,7 @@ const Categories = ({ categories }) => {
                         </NavLink>
                     ))
                 }
+
             </div>
         </div>
     );

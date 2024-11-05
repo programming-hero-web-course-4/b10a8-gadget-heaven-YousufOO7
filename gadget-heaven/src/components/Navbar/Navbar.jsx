@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 
 const Navbar = props => {
-
+    const location = useLocation();
+    const navbarBg = location.pathname === '/' ? 'bg-[#9538E2] text-white max-w-7xl mx-auto pt-5 rounded-t-2xl': 'bg-white text-[#9538E2]';
     const link = <>
         <li><NavLink to="/" ><a>Home</a></NavLink></li>
         <li><NavLink to="/statistics"><a>Statistics</a></NavLink></li>
@@ -12,8 +13,8 @@ const Navbar = props => {
     </>
 
     return (
-        <div>
-            <div className="navbar bg-[#9538E2] rounded-t-2xl ">
+        <div className={`${navbarBg ? 'bg-gray-200': ''}`}>
+            <div className={`navbar  ${navbarBg}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,7 +39,7 @@ const Navbar = props => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl text-white">Gadget Heaven</a>
+                    <a className="btn btn-ghost text-xl">Gadget Heaven</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

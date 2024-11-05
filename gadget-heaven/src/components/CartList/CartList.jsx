@@ -4,22 +4,31 @@ import { useLoaderData, useNavigate } from 'react-router-dom';
 import { getStoredToCartLocal } from '../../Utility/productAddToLocal';
 import Cart from '../Cart/Cart';
 import modalImage from '../../assets/images/Group.png'
+import { toast } from 'react-toastify';
+import { TbSortDescendingNumbers } from "react-icons/tb";
+
 
 const CartList = props => {
     const allProduct = useLoaderData();
     const [carts, setCarts] = useState([]);
     const [sort, setSort] = useState('');
     const navigate = useNavigate();
+    const [modalTotalCost, setModalTotalCost] = useState(0);
     useEffect(() => {
         const storedCartList = getStoredToCartLocal();
         const cartList = [...allProduct].filter(product => storedCartList.includes(product.product_id));
         setCarts(cartList);
     }, [allProduct])
 
-    const totalCost = carts.reduce((total, cart) => total + cart.price, 0);
+    const totalCost = [...carts].reduce((total, cart) => total + cart.price, 0);
+
+    const handleRemoveCarts = () => {
+        setModalTotalCost(totalCost);
+        document.getElementById('my_modal_1').showModal();
+        setCarts([]);
+    }
 
     const handleRemovePrice = () => {
-        setCarts([]);
         navigate('/');
     }
 
@@ -27,6 +36,7 @@ const CartList = props => {
     const handleRemoveCart = product_id => {
         const removeCart = carts.filter(cart => cart.product_id !== product_id);
         setCarts(removeCart);
+        toast.info('Remove this cart from Cart List');
     };
 
     const handleSortType = (sortType) => {
@@ -43,12 +53,13 @@ const CartList = props => {
                 <h3 className="text-2xl font-bold">Cart</h3>
                 <div className='flex items-center text-center gap-5'>
                     <b><b>Total Cost:</b> {totalCost.toFixed(2)}</b>
-                    <button onClick={() => handleSortType(sort === 'asc' ? 'desc' : 'asc')} className="btn">
+                    <button onClick={() => handleSortType(sort === 'asc' ? 'desc' : 'asc')} className="btn btn-outline text-[#9538E2] bg-white">
                         Sort by Price
+                        <TbSortDescendingNumbers></TbSortDescendingNumbers>
                     </button>
                     <button
-                    onClick={() => document.getElementById('my_modal_1').showModal()}
-                        className='btn bg-[#383beebb]'>Purchase </button>
+                        onClick={handleRemoveCarts}
+                        className='btn bg-[#9538E2] text-white'>Purchase</button>
                 </div>
             </div>
             {
@@ -64,15 +75,15 @@ const CartList = props => {
                         <img className='mx-auto pb-4' src={modalImage} alt="" />
                     </div>
                     <div className='text-center'>
-                    <h3 className="font-bold text-2xl">Payment Successfully</h3>
-                    <p className="pt-4 pb-2 font-thin">Thanks for purchasing</p>
-                    <p className="pb-4 font-thin">Total: {totalCost.toFixed(2)}</p>
+                        <h3 className="font-bold text-2xl">Payment Successfully</h3>
+                        <p className="pt-4 pb-2 font-thin">Thanks for purchasing</p>
+                        <p className="pb-4 font-thin">Total: {modalTotalCost.toFixed(2)}</p>
                     </div>
                     <div className="">
                         <form method="dialog">
-                            <button 
-                            onClick={handleRemovePrice}
-                            className="btn w-full font-bold">Close</button>
+                            <button
+                                onClick={handleRemovePrice}
+                                className="btn w-full font-bold">Close</button>
                         </form>
                     </div>
                 </div>

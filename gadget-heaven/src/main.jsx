@@ -11,13 +11,14 @@ import Statistics from './components/Statistics/Statistics';
 import Dashboard from './components/Dashboard/Dashboard';
 import ProductsCard from './components/ProductsCard/ProductsCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
-import CartList from './components/CartList/CartList';
-import WishList from './components/WishList/WishList';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Roots></Roots>,
+    errorElement: <p className="text-4xl font-bold">Oooppppss Error: 404 page is not Found</p>,
     children: [
       {
         path: "/",
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
           {
             path: "/",
             element: <ProductsCard></ProductsCard>,
-            loader: () => fetch('../products.json')
+            loader: () => fetch('../products.json'),
           },
           {
             path: "/category/:category",
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} />,
+    <ToastContainer   position="top-center"/>
   </StrictMode>,
 )
