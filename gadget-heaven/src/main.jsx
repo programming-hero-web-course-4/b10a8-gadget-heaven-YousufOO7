@@ -13,6 +13,7 @@ import ProductsCard from './components/ProductsCard/ProductsCard';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import About from './components/About/About';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard></Dashboard>,
         loader: () => fetch('/products.json'),
+      },
+      {
+        path: "/about",
+        element: <About></About>
       },
       {
         path: "/product/:product_id",

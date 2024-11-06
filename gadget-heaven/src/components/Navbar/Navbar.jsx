@@ -10,6 +10,7 @@ const Navbar = props => {
         <li><NavLink to="/" ><a>Home</a></NavLink></li>
         <li><NavLink to="/statistics"><a>Statistics</a></NavLink></li>
         <li><NavLink to="/dashboard"><a>Dashboard</a></NavLink></li>
+        <li><NavLink to="/about"><a>About</a></NavLink></li>
     </>
 
     return (
