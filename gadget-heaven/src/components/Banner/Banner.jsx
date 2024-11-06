@@ -10,7 +10,7 @@ const Banner = props => {
 };
 
 Banner.propTypes = {
-
+    props: PropTypes
 };
 
 export default Banner;

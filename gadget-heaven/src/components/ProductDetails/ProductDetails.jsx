@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData,  useParams } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
 import { addCartToLocalStore, addHeartToLocalStore } from '../../Utility/productAddToLocal';
 import { useState } from 'react';
 
 const ProductDetails = props => {
+
+
     const { product_id } = useParams();
     const data = useLoaderData();
     const [isActiveCart, setIsActiveCart] = useState(false);
     // add to card handle
-    const cartCountEl = document.getElementById('cart-count');
     const addToCart = (product_id) => {
         addCartToLocalStore(product_id);
         setIsActiveCart(true);
@@ -25,7 +26,7 @@ const ProductDetails = props => {
     const { product_image, product_title, price, availability, description, specifications, rating } = product;
 
     return (
-        <div className='pb-[500px]'>
+        <div className={`pb-[500px]`}>
             {/* text */}
             <div className="hero bg-[#9538E2] pt-10 pb-48 relative">
                 <div className='text-center items-center'>
@@ -82,7 +83,7 @@ const ProductDetails = props => {
 };
 
 ProductDetails.propTypes = {
-
+    props: PropTypes
 };
 
 export default ProductDetails;

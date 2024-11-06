@@ -17,7 +17,7 @@ const BannerTitle = props => {
 };
 
 BannerTitle.propTypes = {
-
+    props: PropTypes
 };
 
 export default BannerTitle;

@@ -39,9 +39,7 @@ const Categories = ({ categories }) => {
 };
 
 Categories.propTypes = {
-    categories: PropTypes.arrayOf(PropTypes.shape({
-        category: PropTypes.string.isRequired,
-    })).isRequired,
+    categories: PropTypes
 };
 
 export default Categories;

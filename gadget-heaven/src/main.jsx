@@ -15,11 +15,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import About from './components/About/About';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Roots></Roots>,
-    errorElement: <p className="text-4xl font-bold">Oooppppss Error: 404 page is not Found</p>,
+    element: <div><Roots></Roots></div>,
+    errorElement: <p className="text-4xl font-bold flex justify-center mt-52">Oooppppss Error: 404 page is not Found</p>,
     children: [
       {
         path: "/",

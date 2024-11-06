@@ -40,7 +40,7 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
-
+    props: PropTypes
 };
 
 export default Dashboard;

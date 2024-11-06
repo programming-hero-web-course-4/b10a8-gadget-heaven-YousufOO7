@@ -36,7 +36,7 @@ const WishList = props => {
 };
 
 WishList.propTypes = {
-    
+    props: PropTypes
 };
 
 export default WishList;

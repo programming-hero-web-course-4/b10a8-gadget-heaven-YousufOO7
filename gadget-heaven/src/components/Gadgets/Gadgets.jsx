@@ -27,7 +27,7 @@ const Gadgets = props => {
 };
 
 Gadgets.propTypes = {
-
+    props: PropTypes
 };
 
 export default Gadgets;

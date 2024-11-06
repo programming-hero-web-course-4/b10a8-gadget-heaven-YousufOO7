@@ -214,7 +214,7 @@ const Statistics = props => {
 
 
 Statistics.propTypes = {
-
+    props: PropTypes
 };
 
 export default Statistics;

@@ -53,7 +53,7 @@ const About = props => {
 };
 
 About.propTypes = {
-
+    props: PropTypes
 };
 
 export default About;

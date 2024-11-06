@@ -25,7 +25,7 @@ const Product = ({ product }) => {
 };
 
 Product.propTypes = {
-
+    product: PropTypes.object
 };
 
 export default Product;

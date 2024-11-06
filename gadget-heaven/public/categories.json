@@ -1,11 +1,11 @@
 [
     {
-        "laptop_id": "LP1001",
-        "category": "Laptop"
-    },
-    {
         "phone_id": "1",
         "category": "Smartphone"
+    },
+    {
+        "laptop_id": "LP1001",
+        "category": "Laptop"
     },
     
     {

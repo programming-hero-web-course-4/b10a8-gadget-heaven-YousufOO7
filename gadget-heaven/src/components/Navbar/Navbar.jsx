@@ -69,7 +69,7 @@ const Navbar = props => {
 };
 
 Navbar.propTypes = {
-
+    props: PropTypes
 };
 
 export default Navbar;

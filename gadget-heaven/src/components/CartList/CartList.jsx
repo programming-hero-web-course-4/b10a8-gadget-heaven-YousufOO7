@@ -53,13 +53,13 @@ const CartList = props => {
                 <h3 className="text-2xl font-bold">Cart</h3>
                 <div className='flex items-center text-center gap-5'>
                     <b><b>Total Cost:</b> {totalCost.toFixed(2)}</b>
-                    <button onClick={() => handleSortType(sort === 'asc' ? 'desc' : 'asc')} className="btn btn-outline text-[#9538E2] bg-white">
+                    <button onClick={() => handleSortType(sort === 'asc' ? 'desc' : 'asc')} className="btn btn-outline text-[#9538E2] bg-white rounded-full">
                         Sort by Price
                         <TbSortDescendingNumbers></TbSortDescendingNumbers>
                     </button>
                     <button
                         onClick={handleRemoveCarts}
-                        className='btn bg-[#9538E2] text-white'>Purchase</button>
+                        className='btn bg-[#9538E2] text-white rounded-full'>Purchase</button>
                 </div>
             </div>
             {
@@ -95,7 +95,7 @@ const CartList = props => {
 };
 
 CartList.propTypes = {
-
+    props: PropTypes
 };
 
 export default CartList;

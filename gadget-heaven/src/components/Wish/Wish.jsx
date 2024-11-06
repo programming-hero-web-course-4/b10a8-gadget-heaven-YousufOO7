@@ -2,8 +2,10 @@ import PropTypes from 'prop-types';
 import { RxCrossCircled } from "react-icons/rx";
 import { FaShoppingCart } from "react-icons/fa";
 import { addCartToLocalStore } from '../../Utility/productAddToLocal';
+import { useContext } from 'react';
+import { CountContext } from '../Roots/Roots';
 const Wish = ({ wish, handleRemoveWishCart }) => {
-
+    const [count] = useContext(CountContext)
     const addToCart = product_id => {
         addCartToLocalStore(product_id)
     }
@@ -38,7 +40,7 @@ const Wish = ({ wish, handleRemoveWishCart }) => {
 };
 
 Wish.propTypes = {
-
+    props: PropTypes
 };
 
 export default Wish;
